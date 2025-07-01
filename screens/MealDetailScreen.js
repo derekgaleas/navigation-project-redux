@@ -10,7 +10,7 @@ import { removeFavorite, addFavorite } from "@/store/redux/favorite";
 
 function MealDetailScreen({ route, navigation }) {
   const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
@@ -18,7 +18,6 @@ function MealDetailScreen({ route, navigation }) {
   const mealIsFavorite = favoriteMealIds.includes(mealId);
 
   useLayoutEffect(() => {
-    
     function changeFavoriteStatusHandler() {
       if (mealIsFavorite) {
         dispatch(removeFavorite({ id: mealId }));
